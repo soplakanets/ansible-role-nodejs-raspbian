@@ -1,0 +1,34 @@
+- name: download archive
+  get_url: >
+    url=http://nodejs.org/dist/{{ nodejs.version }}/node-{{ nodejs.version }}-linux-arm-pi.tar.gz
+    dest=/tmp/node-{{ nodejs.version }}.tar.gz
+    sha256sum=bdd5e253132c363492fa24ed9985873733a10558240fd45b0a4a15989ab8da90
+
+- name: create install directory
+  sudo: true
+  file: >
+    path={{ nodejs.install_dir }}
+    state=directory
+    mode=0755
+
+- name: install
+  sudo: true
+  command: /bin/tar xvzf /tmp/node-{{ nodejs.version }}.tar.gz -C {{ nodejs.install_dir }} --strip 1
+    creates={{ nodejs.install_dir }}/bin/node
+
+- name: link node binary
+  sudo: true
+  command: /bin/ln -s /opt/node/bin/node /usr/local/bin/node
+    creates=/usr/local/bin/node
+
+- name: link npm binary
+  sudo: true
+  command: /bin/ln -s /opt/node/bin/npm /usr/local/bin/npm
+    creates=/usr/local/bin/npm
+
+- name: set NODE_JS_HOME
+  sudo: true
+  template: >
+    src=node_home.j2
+    dest=/etc/profile.d/node_home.sh
+    mode=0644

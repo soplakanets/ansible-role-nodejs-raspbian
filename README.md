@@ -1,4 +1,1 @@
-ansible-role-nodejs-raspbian
-============================
-
-Ansible role to install Node.js on Raspbian (Raspberry PI specific ARM distro)
+This ansible role installs Node.js on Raspbian (Raspberry PI specific ARM distro).

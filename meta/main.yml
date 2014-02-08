@@ -1,0 +1,12 @@
+---
+galaxy_info:
+  author: Serhiy Oplakanets
+  description: Install node.js on Raspbian (Raspberry PI specific ARM distro)
+  min_ansible_version: 1.4
+  platforms:
+  - name: Raspbian
+    versions:
+    - all
+  categories:
+  - system
+  - web

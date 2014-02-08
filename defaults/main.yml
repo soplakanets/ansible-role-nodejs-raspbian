@@ -1,0 +1,4 @@
+nodejs:
+  install_dir: /opt/node
+  version: v0.10.24
+  sha256sum: bdd5e253132c363492fa24ed9985873733a10558240fd45b0a4a15989ab8da90
