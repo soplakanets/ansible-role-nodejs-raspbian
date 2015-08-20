@@ -2,7 +2,7 @@
   get_url: >
     url=http://nodejs.org/dist/{{ nodejs.version }}/node-{{ nodejs.version }}-linux-arm-pi.tar.gz
     dest=/tmp/node-{{ nodejs.version }}.tar.gz
-    sha256sum=bdd5e253132c363492fa24ed9985873733a10558240fd45b0a4a15989ab8da90
+    sha256sum={{ nodejs.sha256sum }}
 
 - name: create install directory
   sudo: true
